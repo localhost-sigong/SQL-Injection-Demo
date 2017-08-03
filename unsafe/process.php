@@ -10,11 +10,11 @@
         $result=mysqli_query($conn, $sql);
         $row=mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-        if(mysqli_num_rows($result) == 1) {
+        if(mysqli_num_rows($result) > 0) {
             $_SESSION["login_username"] = $username;
-            header('Location: /index.php');
+            header('Location: /unsafe/index.php');
         } else {
-            header('Location: /index.php');
+            header('Location: /unsafe/index.php?msg=error');
         }
 
     }
